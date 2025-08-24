@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IELTS Countdown - L09 | Lotus English Centre</title>
+    <title>IELTS Countdown - Lớp L09 | Lotus English Centre</title>
     <style>
         * {
             margin: 0;
@@ -210,6 +210,170 @@
             from { transform: scale(1); }
             to { transform: scale(1.05); }
         }
+
+        /* Mock Test Styles */
+        .mock-test-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .mock-test-title {
+            font-size: 2em;
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .mock-test-subtitle {
+            font-size: 1.2em;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .test-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .test-btn {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 20px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            min-width: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .test-btn:hover {
+            background: linear-gradient(145deg, #ff0000, #cc0000);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .test-btn.active {
+            background: linear-gradient(145deg, #ff0000, #cc0000);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .test-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+        }
+
+        .test-label {
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .test-links {
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .test-header {
+            font-size: 1.5em;
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-link {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-link:hover {
+            border-color: #ff0000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+        }
+
+        .skill-link.listening:hover {
+            background: linear-gradient(145deg, #ff6b6b, #ff5252);
+        }
+
+        .skill-link.reading:hover {
+            background: linear-gradient(145deg, #4ecdc4, #26a69a);
+        }
+
+        .skill-link.writing:hover {
+            background: linear-gradient(145deg, #45b7d1, #2196f3);
+        }
+
+        .skill-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .skill-desc {
+            font-size: 0.9em;
+            color: #cccccc;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .test-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .test-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mock-test-title {
+                font-size: 1.6em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -246,7 +410,94 @@
         
         <div class="motivation">
             <div class="motivation-text">
-                Cố lên thôi chứ biết sao giờ!
+                "Sắp tới rồi..."
+            </div>
+        </div>
+        
+        <!-- Mock Test Section -->
+        <div class="mock-test-section">
+            <div class="mock-test-title">Mock Test 24/8</div>
+            <div class="mock-test-subtitle">Chọn đề thi</div>
+            
+            <div class="test-buttons">
+                <button class="test-btn" data-test="1" id="btn1">
+                    <span class="test-number">1</span>
+                    <span class="test-label">Đề thi 1</span>
+                </button>
+                <button class="test-btn" data-test="2" id="btn2">
+                    <span class="test-number">2</span>
+                    <span class="test-label">Đề thi 2</span>
+                </button>
+                <button class="test-btn" data-test="3" id="btn3">
+                    <span class="test-number">3</span>
+                    <span class="test-label">Đề thi 3</span>
+                </button>
+            </div>
+            
+            <!-- Test Links for Test 1 -->
+            <div class="test-links" id="test1" style="display: none;">
+                <div class="test-header">Đề thi số 1</div>
+                <div class="skills-grid">
+                    <a href="https://study4.com/tests/4296/ielts-plus-volume-3-listening-test-6/" target="_blank" class="skill-link listening">
+                        <div class="skill-icon">🎧</div>
+                        <div class="skill-name">Listening</div>
+                        <div class="skill-desc">40 câu hỏi - 30 phút</div>
+                    </a>
+                    <a href="https://study4.com/tests/4297/ielts-plus-volume-3-reading-test-6/" target="_blank" class="skill-link reading">
+                        <div class="skill-icon">📖</div>
+                        <div class="skill-name">Reading</div>
+                        <div class="skill-desc">40 câu hỏi - 60 phút</div>
+                    </a>
+                    <a href="https://docs.google.com/document/d/1cQocy4mWq7kaSLNhtrq3-l4BuAvf-AJC6U7FDRfXQEQ/edit?usp=sharing" target="_blank" class="skill-link writing">
+                        <div class="skill-icon">✍️</div>
+                        <div class="skill-name">Writing</div>
+                        <div class="skill-desc">2 bài viết - 60 phút</div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Test Links for Test 2 -->
+            <div class="test-links" id="test2" style="display: none;">
+                <div class="test-header">Đề thi số 2</div>
+                <div class="skills-grid">
+                    <a href="https://study4.com/tests/4294/ielts-plus-volume-3-listening-test-5/" target="_blank" class="skill-link listening">
+                        <div class="skill-icon">🎧</div>
+                        <div class="skill-name">Listening</div>
+                        <div class="skill-desc">40 câu hỏi - 30 phút</div>
+                    </a>
+                    <a href="https://study4.com/tests/4295/ielts-plus-volume-3-reading-test-5/" target="_blank" class="skill-link reading">
+                        <div class="skill-icon">📖</div>
+                        <div class="skill-name">Reading</div>
+                        <div class="skill-desc">40 câu hỏi - 60 phút</div>
+                    </a>
+                    <a href="https://docs.google.com/document/d/1Y08ljgbdcWtnAuglrpGBdKalhkolxgzNNMwhTOzvv_Y/edit?usp=sharing" target="_blank" class="skill-link writing">
+                        <div class="skill-icon">✍️</div>
+                        <div class="skill-name">Writing</div>
+                        <div class="skill-desc">2 bài viết - 60 phút</div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Test Links for Test 3 -->
+            <div class="test-links" id="test3" style="display: none;">
+                <div class="test-header">Đề thi số 3</div>
+                <div class="skills-grid">
+                    <a href="https://study4.com/tests/5082/ielts-practice-set-19-listening-test-3/" target="_blank" class="skill-link listening">
+                        <div class="skill-icon">🎧</div>
+                        <div class="skill-name">Listening</div>
+                        <div class="skill-desc">40 câu hỏi - 30 phút</div>
+                    </a>
+                    <a href="https://study4.com/tests/5089/ielts-practice-set-19-reading-test-2/" target="_blank" class="skill-link reading">
+                        <div class="skill-icon">📖</div>
+                        <div class="skill-name">Reading</div>
+                        <div class="skill-desc">40 câu hỏi - 60 phút</div>
+                    </a>
+                    <a href="https://docs.google.com/document/d/1NvSdA_nzNLiQXoOCmIrLGF4A1O9uGolxt-TBO2AjpjQ/edit?usp=sharing" target="_blank" class="skill-link writing">
+                        <div class="skill-icon">✍️</div>
+                        <div class="skill-name">Writing</div>
+                        <div class="skill-desc">2 bài viết - 60 phút</div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -268,6 +519,7 @@
 
         // Countdown timer
         function updateCountdown() {
+            // Cố định theo giờ Việt Nam (UTC+7)
             const examDate = new Date('2025-08-29T00:00:00+07:00').getTime();
             const now = new Date().getTime();
             const distance = examDate - now;
@@ -292,6 +544,46 @@
         createParticles();
         updateCountdown();
         setInterval(updateCountdown, 1000);
+        
+        // Mock Test Functions
+        let currentActiveTest = null;
+
+        function toggleTest(testNumber) {
+            const testDiv = document.getElementById(`test${testNumber}`);
+            const btn = document.getElementById(`btn${testNumber}`);
+            
+            // Nếu test hiện tại đang mở, đóng nó
+            if (currentActiveTest === testNumber) {
+                testDiv.style.display = 'none';
+                btn.classList.remove('active');
+                currentActiveTest = null;
+                return;
+            }
+            
+            // Đóng test khác nếu có
+            if (currentActiveTest) {
+                document.getElementById(`test${currentActiveTest}`).style.display = 'none';
+                document.getElementById(`btn${currentActiveTest}`).classList.remove('active');
+            }
+            
+            // Mở test được chọn
+            testDiv.style.display = 'block';
+            btn.classList.add('active');
+            currentActiveTest = testNumber;
+            
+            // Scroll to test links
+            testDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Add event listeners to test buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.test-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const testNumber = parseInt(this.getAttribute('data-test'));
+                    toggleTest(testNumber);
+                });
+            });
+        });
 
         // Thêm hiệu ứng click cho time units
         document.querySelectorAll('.time-unit').forEach(unit => {
